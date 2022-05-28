@@ -26,6 +26,11 @@ const questions = [
 },
 {
     type: "input",
+    name: "test",
+    message: "How do you test your application?",
+},
+{
+    type: "input",
     name: "credits",
     message: "Who are the collaborators?",
 },
@@ -33,6 +38,11 @@ const questions = [
     type: "input",
     name: "github",
     message: "What is your GitHub profile?",
+},
+{
+    type: "input",
+    name: "email",
+    message: "What is your email address?",
 },
 {
     type: "input",
