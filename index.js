@@ -1,12 +1,15 @@
+//file system to create README
+const fs = require("fs");
+
+
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
-const fs = require("fs");
-const generateMarkdown = require("./utils/generateMarkdown");
+
+const generateMarkdown = require("./Develop/utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = () => { 
-    return inquirer.prompt();
-    [
+    return inquirer.prompt([
 {
     type: "input",
     name: "title",
@@ -21,7 +24,7 @@ const questions = () => {
         }},},
 {
     type: "input",
-    name: "purpose",
+    name: "description",
     message: "What is the description of your application?",
     //validate values throughout the prompted questions
     validate: (nameInput) => {
@@ -123,25 +126,10 @@ const questions = () => {
     }
 ];
 }
-]).then((answers) => {
+then((answers) => {
     fs.writeFile("README.md", markdownData, err =>
     err ? console.log(err) : console.log("Input received."));
 }
 
-
-// TODO: Create a function to write README file
-function writeToFile(file, data) {
-    const markdownData = generateMarkdown;
-fs.appendFile("README.md", markdownData, err =>
-    err ? console.log(err) : console.log("Input received."));
-}
-
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions).then((response) =>
-    writeToFile("README.md", response)
-    );
-}
-
 // Function call to initialize app
-init();
+questions();
