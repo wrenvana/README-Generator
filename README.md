@@ -20,6 +20,7 @@ Install Node.js if you do not already have it installed. Download the repository
 ----------------------------------------------------------------
 ## Usage
 Type "node index.js" into your command line program once you have navigated to the README Generator program's directory. Answer the prompts to generate a README file.
+
 ![READMEGenUsage](./assets/READMEGenUsage.gif)
 
 ----------------------------------------------------------------
