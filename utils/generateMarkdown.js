@@ -1,45 +1,88 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const generateLicense = require("./license");
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-## Table of Contents
-----------------------------------------------------------------
-- ## [Description](#Description)
-- ## [Installation](#Installation)
-- ## [Usage](#usage)
-- ## [Contributors](#Contributors)
-- ## [Testing](#Testing)
-- ## [License](#License)
-- ## [Username](#Username)
-- ## [Email](#Email)
-----------------------------------------------------------------
-## Description
-${data.description}
-----------------------------------------------------------------
-## Installation
+  //Generate license info
+  const licenseString = generateLicense(
+    data.license[0],
+    data.year,
+    data.fullName,
+    data.title
+  );
 
-----------------------------------------------------------------
-## Usage
-
-----------------------------------------------------------------
-## Contributors
-
-----------------------------------------------------------------
-## Testing
-
-----------------------------------------------------------------
-## License
-
-----------------------------------------------------------------
-## Username
-
-----------------------------------------------------------------
-## Email
-
-`;
+  //Generate Table of Contents
+  return (
+    `# ${data.title}
+    ` +
+    `## Table of Contents
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `- ## [Description](#Description)
+    ` +
+    `- ## [Installation](#Installation)
+    ` +
+    `- ## [Usage](#usage)
+    ` +
+    `- ## [Contributors](#Contributors)
+    ` +
+    `- ## [Testing](#Testing)
+    ` +
+    `- ## [License](#License)
+    ` +
+    `- ## [Username](#Username)
+    ` +
+    `- ## [Email](#Email)
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Description
+    ` +
+    `${data.description}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Installation
+    ` +
+    `${data.installation}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Usage
+    ` +
+    `${data.usage}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Contributors
+    ` +
+    `${data.credits}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Testing
+    ` +
+    `${data.test}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## License
+    ` +
+    `${licenseString}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Username
+    ` +
+    `${data.github}
+    ` +
+    `----------------------------------------------------------------
+    ` +
+    `## Email
+    ` +
+    `${data.email}
+    `
+  );
 }
 
 module.exports = generateMarkdown;
